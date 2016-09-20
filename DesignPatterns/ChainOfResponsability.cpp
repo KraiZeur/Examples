@@ -2,7 +2,9 @@
 #include <string>
 
 /**
- * Simple Chain
+ * Simple Chain of Responsability design pattern.
+ * Each elements are linked using a Chain class.
+ * The last element is set to NULL.
  * using an iterator to visit each element.
  */
 class Chain {
@@ -10,6 +12,11 @@ private:
 	Chain* _next;
 	std::string _name;
 public:
+  /**
+   * Simple Iterator Design Pattern allowing user to iterate over each element
+   * of the list.
+   * @warning Not Thread Safe
+   */
 	class Iterator {
 	private:
 		Chain * _current;
