@@ -28,7 +28,7 @@ public:
       return (*this);
     }
 		bool operator==(const Iterator& other) {
-  		return ((*this) == (*other));
+  		return ((*this) == (other));
 		}
 
 		bool operator!=(const Iterator& other) {
