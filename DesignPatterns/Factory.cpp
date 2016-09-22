@@ -62,14 +62,14 @@ class Base {
 private:
 public:
   virtual ~Base() {}
-  virtual void display()=0;
+  virtual void display() const=0;
 };
 // -----------------------------------------------------------------------------
 class ConcreteA : public Base {
 private:
 public:
   virtual ~ConcreteA() {}
-  void display() const {
+  virtual void display() const {
     std::cout << "I'm ConcreteA" << std::endl;
   }
   REGISTER_FACTORY(ConcreteA)
@@ -79,7 +79,7 @@ class ConcreteB : public Base {
 private:
 public:
   virtual ~ConcreteB() {}
-  void display() {
+  virtual void display() const {
     std::cout << "I'm ConcreteB" << std::endl;
   }
   REGISTER_FACTORY(ConcreteB)
@@ -117,6 +117,9 @@ int main(void) {
   } else {
     std::cerr << "Error no factory defined for class " << "ConcreteA" << std::endl;
   }
+
+  delete factory;
+  delete concrete;
 
   return 0;
 }

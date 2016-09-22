@@ -18,8 +18,7 @@ CUR_BINARIES=$(patsubst %.o,$(BUILD_DIR)/%, $(CUR_FILES_O))
 all:$(CUR_BINARIES)
 
 $(BUILD_DIR)/%:$(BUILD_DIR)/%.o
-	$(DIR_GUARD)
-	$(CC) $(CFLAGS) $< -o $@
+	$(CC) $(CFLAGS) $< -o $@ $(LINKED_LIB)
 
 $(BUILD_DIR)/%.o:%.cpp
 	$(DIR_GUARD)
@@ -31,7 +30,16 @@ run:$(BUILD_DIR)/$(V)
 
 .PHONY:debug
 debug:$(BUILD_DIR)/$(V)
-	gdb -tui -q ./$<
+	@$(GDB) -tui -q ./$<
 
+.PHONY:debugmem
+debugmem:$(BUILD_DIR)/$(V)
+	@valgrind --leak-check=full --show-leak-kinds=all -v ./$<
+
+.PHONY:dump
+dump:$(BUILD_DIR)/$(V)
+	@objdump -S ./$< | less
+
+.PHONY:clean
 clean:
 	rm -rf ./$(BUILD_DIR)

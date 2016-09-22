@@ -20,15 +20,18 @@ public:
 	class Iterator {
 	private:
 		Chain * _current;
-	public:
-		Iterator(Chain * current) {
+		const Chain* getCurrent() const {
+			return _current;
 		}
+	public:
+		Iterator(Chain * current) {_current=current;}
+		~Iterator() {}
 		Iterator operator++(int) {
-      _current=_current->next();
-      return (*this);
-    }
+			_current=_current->next();
+			return (*this);
+		}
 		bool operator==(const Iterator& other) {
-  		return ((*this) == (other));
+  		return (this->getCurrent() == other.getCurrent());
 		}
 
 		bool operator!=(const Iterator& other) {

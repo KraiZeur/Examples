@@ -5,10 +5,10 @@
  * Resource Acquisition Is Initialization
  */
 
-class Synchro;
+class Lock;
 
 class Mutex {
-	friend class Synchro;
+	friend class Lock;
 private:
 	pthread_mutex_t _mutex;
 public:
@@ -23,14 +23,14 @@ public:
 /**
  * Unlock mutex when it run out of scope
  */
-class Synchro {
+class Lock {
 private:
 	Mutex * _mutex;
 public:
-	Synchro(Mutex * mutex) : _mutex(mutex) {
+	Lock(Mutex * mutex) : _mutex(mutex) {
 		pthread_mutex_lock(&(_mutex->_mutex));
 	}
-	~Synchro() {
+	~Lock() {
 		pthread_mutex_unlock(&(_mutex->_mutex));
 	}
 };
@@ -40,7 +40,7 @@ int value=0;
 
 void * routine(void * args) {
 	{
-		Synchro s(mutex);
+		Lock lock(mutex);
 		value++;
 	}
 
@@ -50,12 +50,12 @@ void * routine(void * args) {
 #define THREADS_COUNT 30000
 
 int main(int argc, char const *argv[]) {
-
 	pthread_t tid[THREADS_COUNT];
 
 	for (int i = 0; i < THREADS_COUNT; i++) {
 		pthread_create(tid+i, NULL, routine, NULL);
 	}
+
 	for (int i = 0; i < THREADS_COUNT; i++) {
 		pthread_join(tid[i], NULL);
 	}
