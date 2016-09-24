@@ -18,17 +18,16 @@ class Decorator : public Component {
 protected:
   Component* _component;
 public:
+  Decorator(Component* component) : _component(component) {}
   virtual ~Decorator() {
     delete _component;
   }
-  Decorator(Component* component) {
-    _component=component;
-  }
 };
 
-class Mozarella : public Component {
+class Mozarella : public Decorator {
 private:
 public:
+  Mozarella(Component* component) : Decorator(component) { }
   virtual ~Mozarella() {}
   unsigned int getPrice() {
     return 75 + _component->getPrice();
@@ -38,7 +37,9 @@ public:
 int main(int argc, char const *argv[]) {
   Component* component = new Mozarella(new Pizza);
 
+  std::cout << "Final price : "  << component->getPrice() << std::endl;
+
   delete component;
-  
+
   return 0;
 }

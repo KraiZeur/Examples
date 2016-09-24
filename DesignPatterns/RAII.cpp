@@ -2,7 +2,7 @@
 #include <iostream>
 
 /**
- * Resource Acquisition Is Initialization
+ * Resource Acquisition Is Initialization Design pattern
  */
 
 class Lock;
@@ -21,7 +21,7 @@ public:
 };
 
 /**
- * Unlock mutex when it run out of scope
+ * Unlock mutex when the class goes out of scope
  */
 class Lock {
 private:
