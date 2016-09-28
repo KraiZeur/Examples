@@ -86,7 +86,7 @@ public:
   //friend void TemplateFactory<B>::addType(std::string component);
 };
 // -----------------------------------------------------------------------------
-// Default factory design
+// Simple factory design
 class Factory {
 private:
 public:
