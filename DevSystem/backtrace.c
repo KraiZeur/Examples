@@ -14,7 +14,7 @@
  */
 
 // Define the number of trace displayed by the backtrace
-#define SIZE 3
+#define SIZE 10
 
 void handler(int signum) {
   void* array[SIZE];

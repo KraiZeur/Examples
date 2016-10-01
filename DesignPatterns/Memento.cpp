@@ -43,6 +43,12 @@ class CareTaker {
 private:
   std::map<std::string,CharacterState*> _states;
 public:
+  ~CareTaker() {
+    std::map<std::string,CharacterState*>::iterator it;
+    for (it=_states.begin();it!=_states.end();it++) {
+      delete it->second;
+    }
+  }
   void addMemento(std::string name,CharacterState* state) {
     _states[name]=state;
   }
@@ -65,6 +71,9 @@ int main(int argc, char const *argv[]) {
 
   hellBoy->loadState(taker->getMemento("state1"));
   hellBoy->display();
+
+  delete taker;
+  delete hellBoy;
 
   return 0;
 }
