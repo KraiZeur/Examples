@@ -7,6 +7,8 @@ class FLV;
 /**
  * This design pattern allows to use RTTI principle.
  * RTTI = Run Time Type Information
+ * It's like using a switch of dynamic_cast
+ * But in a clever way...
  */
 
 #define REGISTER_ACCEPTOR \

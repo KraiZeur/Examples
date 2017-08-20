@@ -1,0 +1,318 @@
+Breakpoint 1 at 0x400558: file simple.c, line 15.
+Type commands for breakpoint(s) 1, one per line.
+End with a line saying just "end".
+Temporary breakpoint 2 at 0x400535: file simple.c, line 11.
+Starting program: /home/thomas/swap/git/examples/GDB/a.out 
+
+Temporary breakpoint 2, main (argc=1, argv=0x7fffffffde28) at simple.c:11
+Continuing.
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:15
+$1 = 105
+Continuing.
+[Inferior 1 (process 7673) exited normally]
+Undefined command: "breakpoint".  Try "help".
+No breakpoint number 1.
+No breakpoints specified.
+No symbol "position" in current context.
+This command cannot be used at the top level.
+Quit
+Breakpoint 1 at 0x40055a: file simple.c, line 16.
+Type commands for breakpoint(s) 1, one per line.
+End with a line saying just "end".
+Temporary breakpoint 2 at 0x400535: file simple.c, line 11.
+Starting program: /home/thomas/swap/git/examples/GDB/a.out 
+
+Temporary breakpoint 2, main (argc=1, argv=0x7fffffffde28) at simple.c:11
+Continuing.
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+$1 = 105
+Continuing.
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+$2 = 106
+Continuing.
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+$3 = 107
+Continuing.
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+$4 = 108
+Continuing.
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+$5 = 109
+Continuing.
+[Inferior 1 (process 7689) exited normally]
+Breakpoint 1 at 0x40055a: file simple.c, line 16.
+Type commands for breakpoint(s) 1, one per line.
+End with a line saying just "end".
+Temporary breakpoint 2 at 0x400535: file simple.c, line 11.
+Starting program: /home/thomas/swap/git/examples/GDB/a.out 
+
+Temporary breakpoint 2, main (argc=1, argv=0x7fffffffde28) at simple.c:11
+Not stopped at any breakpoint; argument ignored.
+Continuing.
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+$1 = 105
+Ambiguous command "w": watch, wh, whatis, where, while, while-stepping, winheight, ws.
+Argument required (expression to compute).
+Will ignore next 98 crossings of breakpoint 1.  Continuing.
+[Inferior 1 (process 1892) exited normally]
+debugSimple.gdb:4: Error in sourced command file:
+Undefined command: "breakpoint".  Try "help".
+Already logging to gdb.txt.
+Breakpoint 1 at 0x40055a: file simple.c, line 16.
+Temporary breakpoint 2 at 0x400535: file simple.c, line 11.
+
+Temporary breakpoint 2, main (argc=1, argv=0x7fffffffde28) at simple.c:11
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+$1 = 105
+Breakpoint 1 at 0x40055a: file simple.c, line 16.
+Temporary breakpoint 2 at 0x400535: file simple.c, line 11.
+
+Temporary breakpoint 2, main (argc=1, argv=0x7fffffffde28) at simple.c:11
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+$1 = 105
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+$2 = 106
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+$3 = 107
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+$4 = 108
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+$5 = 109
+[Inferior 1 (process 2662) exited normally]
+Breakpoint 1 at 0x40055a: file simple.c, line 16.
+Temporary breakpoint 2 at 0x400535: file simple.c, line 11.
+
+Temporary breakpoint 2, main (argc=1, argv=0x7fffffffde28) at simple.c:11
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+$1 = 105
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+$2 = 106
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+$3 = 107
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+$4 = 108
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+$5 = 109
+[Inferior 1 (process 2673) exited normally]
+Breakpoint 1 at 0x40055a: file simple.c, line 16.
+Temporary breakpoint 2 at 0x400535: file simple.c, line 11.
+
+Temporary breakpoint 2, main (argc=1, argv=0x7fffffffde28) at simple.c:11
+11	  position_t* position=(position_t*)malloc(sizeof(position_t));
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+16	    position->x++;
+$1 = 105
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+16	    position->x++;
+$2 = 106
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+16	    position->x++;
+$3 = 107
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+16	    position->x++;
+$4 = 108
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+16	    position->x++;
+$5 = 109
+[Inferior 1 (process 2707) exited normally]
+Breakpoint 1 at 0x40055a: file simple.c, line 16.
+Temporary breakpoint 2 at 0x400535: file simple.c, line 11.
+
+Temporary breakpoint 2, main (argc=1, argv=0x7fffffffde28) at simple.c:11
+11	  position_t* position=(position_t*)malloc(sizeof(position_t));
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+16	    position->x++;
+$1 = 105
+debugSimple.gdb:16: Error in sourced command file:
+Invalid argument syntax
+Breakpoint 1 at 0x40055a: file simple.c, line 16.
+Temporary breakpoint 2 at 0x400535: file simple.c, line 11.
+
+Temporary breakpoint 2, main (argc=1, argv=0x7fffffffde28) at simple.c:11
+11	  position_t* position=(position_t*)malloc(sizeof(position_t));
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+16	    position->x++;
+$1 = 105
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+16	    position->x++;
+$2 = 106
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+16	    position->x++;
+$3 = 107
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+16	    position->x++;
+$4 = 108
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+16	    position->x++;
+$5 = 109
+[Inferior 1 (process 2284) exited normally]
+Breakpoint 1 at 0x40055a: file simple.c, line 16.
+Temporary breakpoint 2 at 0x400535: file simple.c, line 11.
+
+Temporary breakpoint 2, main (argc=1, argv=0x7fffffffde28) at simple.c:11
+11	  position_t* position=(position_t*)malloc(sizeof(position_t));
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+16	    position->x++;
+$1 = 105
+debugSimple.gdb:16: Error in sourced command file:
+No symbol "p" in current context.
+Breakpoint 1 at 0x40055a: file simple.c, line 16.
+Temporary breakpoint 2 at 0x400535: file simple.c, line 11.
+
+Temporary breakpoint 2, main (argc=1, argv=0x7fffffffde28) at simple.c:11
+11	  position_t* position=(position_t*)malloc(sizeof(position_t));
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+16	    position->x++;
+$1 = 105
+position : 105
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+16	    position->x++;
+$2 = 106
+position : 106
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+16	    position->x++;
+$3 = 107
+position : 107
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+16	    position->x++;
+$4 = 108
+position : 108
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+16	    position->x++;
+$5 = 109
+position : 109[Inferior 1 (process 2338) exited normally]
+Breakpoint 1 at 0x40055a: file simple.c, line 16.
+Temporary breakpoint 2 at 0x400535: file simple.c, line 11.
+
+Temporary breakpoint 2, main (argc=1, argv=0x7fffffffde28) at simple.c:11
+11	  position_t* position=(position_t*)malloc(sizeof(position_t));
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+16	    position->x++;
+$1 = 105
+position : 105
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+16	    position->x++;
+$2 = 106
+position : 106
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+16	    position->x++;
+$3 = 107
+position : 107
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+16	    position->x++;
+$4 = 108
+position : 108
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+16	    position->x++;
+$5 = 109
+position : 109[Inferior 1 (process 2344) exited normally]
+Breakpoint 1 at 0x40055a: file simple.c, line 16.
+Temporary breakpoint 2 at 0x400535: file simple.c, line 11.
+
+Temporary breakpoint 2, main (argc=1, argv=0x7fffffffde28) at simple.c:11
+11	  position_t* position=(position_t*)malloc(sizeof(position_t));
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+16	    position->x++;
+$1 = 105
+position : 105
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+16	    position->x++;
+$2 = 106
+position : 106
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+16	    position->x++;
+$3 = 107
+position : 107
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+16	    position->x++;
+$4 = 108
+position : 108
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+16	    position->x++;
+$5 = 109
+position : 109[Inferior 1 (process 2294) exited normally]
+Breakpoint 1 at 0x40055a: file simple.c, line 16.
+Temporary breakpoint 2 at 0x400535: file simple.c, line 11.
+
+Temporary breakpoint 2, main (argc=1, argv=0x7fffffffde28) at simple.c:11
+11	  position_t* position=(position_t*)malloc(sizeof(position_t));
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+16	    position->x++;
+$1 = 105
+position : 105
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+16	    position->x++;
+$2 = 106
+position : 106
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+16	    position->x++;
+$3 = 107
+position : 107
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+16	    position->x++;
+$4 = 108
+position : 108
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+16	    position->x++;
+$5 = 109
+position : 109[Inferior 1 (process 2336) exited normally]
+Breakpoint 1 at 0x40055a: file simple.c, line 16.
+Temporary breakpoint 2 at 0x400535: file simple.c, line 11.
+
+Temporary breakpoint 2, main (argc=1, argv=0x7fffffffde28) at simple.c:11
+11	  position_t* position=(position_t*)malloc(sizeof(position_t));
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+16	    position->x++;
+$1 = 105
+position : 105
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+16	    position->x++;
+$2 = 106
+position : 106
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+16	    position->x++;
+$3 = 107
+position : 107
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+16	    position->x++;
+$4 = 108
+position : 108
+Breakpoint 1, main (argc=1, argv=0x7fffffffde28) at simple.c:16
+16	    position->x++;
+$5 = 109
+position : 109[Inferior 1 (process 2342) exited normally]

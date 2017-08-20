@@ -1,10 +1,17 @@
 BUILD_DIR=build
-CC=g++
+CC=gcc
+CCP=g++
 GDB=gdb
 CFLAGS+=-Wall -g
+CPPFLAGS+=-Wall -g -std=c++11
 
+#better use clang if available
 ifeq ($(shell clang++ -v 2>/dev/null && echo 1 || echo 0),1)
-CC=clang++
+CCP=clang++
+endif
+
+ifeq ($(shell clang -v 2>/dev/null && echo 1 || echo 0),1)
+CC=clang
 endif
 
 DIR_GUARD=@mkdir -p $(BUILD_DIR)
@@ -29,11 +36,11 @@ CUR_BINARIES=$(patsubst %.o,$(BUILD_DIR)/%, $(CUR_FILES_O))
 all:$(CUR_BINARIES)
 
 $(BUILD_DIR)/%:$(BUILD_DIR)/%.o
-	$(CC) $(CFLAGS) $< -o $@ $(LINKED_LIB)
+	$(CCP) $(CFLAGS) $< -o $@ $(LINKED_LIB)
 
 $(BUILD_DIR)/%.o:%.cpp
 	$(DIR_GUARD)
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CCP) $(CPPFLAGS) -c $< -o $@
 
 $(BUILD_DIR)/%.o:%.c
 	$(DIR_GUARD)

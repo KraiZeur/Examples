@@ -1,0 +1,25 @@
+help
+apropos args
+
+info
+
+set exec-wrapper env 'LD_PRELOAD=libtest.so'
+
+// Disable randomization is disable by default so erro can not be reproduced sometimes
+set disable-randomization on
+
+show disable-randomization
+
+set args
+show args
+
+info terminal
+
+attach <pid>
+
+thread <tid> // swith to thread tid
+
+checkpoint
+
+
+watch foo mak 0xfff

@@ -1,0 +1,21 @@
+command 2 // each time breakpoint 2 is hit run the command
+>backtrace 10
+>continue
+>end
+
+(gdb) set logging file gdb.txt
+(gdb) set logging on
+Copying output to gdb.txt.
+(gdb) set pagination off
+
+// -------------------------------------------------------
+
+file a.out
+
+l -> display code
+
+b main
+info breakpoints
+disable 1
+
+condition 1 i == 20

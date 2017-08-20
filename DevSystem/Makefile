@@ -1,3 +1,3 @@
-CFLAGS+=-rdynamic
+#CFLAGS+=-rdynamic
 
 include ../Module.mk

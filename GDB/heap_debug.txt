@@ -1,0 +1,11 @@
+info proc mappings // when a malloc is hit
+
+
+
+x/56wx 0x602000  // 4*56 = 224
+
+
+define hook-stop
+x/56wx 0x8000000000
+x/3i $eip
+end

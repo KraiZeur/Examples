@@ -85,19 +85,7 @@ public:
   REGISTER_FACTORY(ConcreteB)
   //friend void TemplateFactory<B>::addType(std::string component);
 };
-// -----------------------------------------------------------------------------
-// Simple factory design
-class Factory {
-private:
-public:
-  static Base* createConcrete(std::string id) {
-    if (id=="ConcreteA")
-      return new ConcreteA;
-    else if (id=="ConcreteB")
-      return new ConcreteB;
-    return NULL;
-  }
-};
+
 // -----------------------------------------------------------------------------
 template<typename B>
 TemplateFactory<B>::TemplateFactory() {

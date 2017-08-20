@@ -1,0 +1,27 @@
+--------------------------------------------
+// Go to child when forking
+
+set follow-fork-mode [on]
+
+
+--------------------------------------------
+// Allow debuging the children
+
+set detach-on-fork [off]
+
+
+--------------------------------------------
+// Display inferiors
+
+info inferiors
+
+--------------------------------------------
+// Switch between child Process
+
+inferior [1]
+
+--------------------------------------------
+// Debug in parralel
+
+Open a new terminal and start gdb using
+gdb -p [pid]

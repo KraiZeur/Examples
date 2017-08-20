@@ -1,0 +1,17 @@
+--------------------------------------------
+// Display process threads
+
+info threads
+
+
+--------------------------------------------
+// Don't stop other threads
+
+set non-stop on
+
+
+
+--------------------------------------------
+// Run only the current thread. Other threads can't preempt the current thread
+
+set scheduler-locking [on]

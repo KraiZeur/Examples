@@ -2,7 +2,11 @@
 #include <iostream>
 
 /**
- * Resource Acquisition Is Initialization Design pattern
+ * Resource Acquisition Is Initialization.
+ * This pattern can be easily presented using mutex mechanism.
+ * Since mutex need to be locked and unlocked RAII allow to do this routine
+ * witout explicitly calling luck/unlock functions.
+ * Moreover when the class goes out of scope it always unlock ressources.
  */
 
 class Lock;
@@ -40,9 +44,9 @@ int value=0;
 
 void * routine(void * args) {
 	{
-		Lock lock(mutex);
+		Lock lock(mutex); // <-- Here we initialize the lock (lock the mutex) by calling Lock constructor
 		value++;
-	}
+	} // <-- Here the lock goes out of scope (unlock the mutex) by calling Lock destructor
 
 	pthread_exit(NULL);
 }
