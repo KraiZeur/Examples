@@ -1,0 +1,14 @@
+// Get line based on offset example :
+// Base Address =    0x400000    (/proc/<PID>/maps)  -- (check in /proc/pid/maps and find the libtst.so line with 'r-xp' permissions)
+// Virtual Address = 0x4004EC    (valgrind segfault)
+// Offset = 0x4EC
+
+// objdump -f a.out ---> start address 0x0000000000400430
+// f4 --> 0x400568
+// Offset = 0x138
+
+addr2line -e a.out -j .text [0x138]
+
+// You can also use gdb without offset computation
+
+info symbol 0x4004EC

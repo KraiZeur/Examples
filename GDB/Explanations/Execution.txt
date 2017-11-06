@@ -1,0 +1,15 @@
+#######################################################
+Checkpoints
+#######################################################
+
+--------------------------------------------
+// Create a new checkpoint from current position (fork process)
+checkpoint
+
+
+
+
+info checkpoints
+
+
+restart 0

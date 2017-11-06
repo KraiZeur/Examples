@@ -1,0 +1,6 @@
+// TC for Traffic Control
+
+// Traffic control is the set of tools which allows the user to have granular control over these queues and the queuing mechanisms of a networked device. The power to rearrange traffic flows and packets with these tools is tremendous and can be complicated, but is no substitute for adequate bandwidth.
+// The term Quality of Service (QoS) is often used as a synonym for traffic control.
+
+// Install IPTraf : sudo apt-get install iptraf

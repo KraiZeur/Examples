@@ -1,0 +1,7 @@
+nm
+
+size
+
+ulimit -c unlimited
+
+mtrace

@@ -1,7 +1,7 @@
 --------------------------------------------
-// Go to child when forking
+// Go to child when forking default (parent)
 
-set follow-fork-mode [on]
+set follow-fork-mode [child]
 
 
 --------------------------------------------

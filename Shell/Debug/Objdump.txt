@@ -1,0 +1,9 @@
+@SEE readelf
+
+// Display dissasembly
+
+objdump -d [a.out]
+
+// Header informations
+
+objdump -f [a.out]

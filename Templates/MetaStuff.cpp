@@ -1,40 +1,20 @@
 #include <string>
-
+#include <tuple>
 
 class Person
 {
 private:
+  std::string _name;
 public:
   void setName(std::string name)
   {
     _name=name;
   }
-  std::string name getName()
+  std::string getName()
   {
     return _name;
   }
 };
-
-
-namespace meta
-{
-  template <typename T, typename TupleType>
-  struct MetaHolder {
-    static TupleType members;
-  };
-
-  template <typename T, typename TupleType>
-  TupleType MetaHolder<T, TupleType>::members = registerMembers<T>();
-}
-
-namespace meta
-{
-  template <typename C>
-  const auto& getMembers()
-  {
-      return detail::MetaHolder<C, decltype(registerMembers<C>())>::members;
-  }
-}
 
 namespace meta
 {
@@ -70,29 +50,78 @@ namespace meta
   };
 }
 
-
-// #############################################################################
 namespace meta
 {
-  template <>
-  inline Member registerMembers<Person>()
+  template <typename... Args>
+  auto members(Args&&... args)
   {
-    return Member( Member("Name", &Person::getName, &Person::setName) );
+      return std::make_tuple(std::forward<Args>(args)...);
+  }
+
+  template <typename Class>
+  inline auto registerMembers()
+  {
+      return std::make_tuple();
   }
 }
-// #############################################################################
+
+namespace meta
+{
+
+template <>
+inline auto registerMembers<Person>()
+{
+  return members( members("name", &Person::getName, &Person::setName) );
+}
 
 
-int main(int argc, char const *argv[]) {
+template <typename T, typename TupleType>
+struct MetaHolder {
+    static TupleType members;
+    static const char* name() 
+    {
+        return registerName<T>();
+    }
+};
 
-  //MetaHolder<Person, >::members;
+template <typename T, typename TupleType>
+TupleType MetaHolder<T, TupleType>::members = registerMembers<T>();
 
-  meta::getMembers<Person>();
 
-  // Template<T, C>
-  // T = Person
-  // C = String
-  meta::setMemberValue<std::string>(person, "name", "Ron Burgundy");
+template <typename Class>
+const auto& getMembers()
+{
+    return MetaHolder<Class, decltype(registerMembers<Class>())>::members;
+}
 
-  return 0;
+template <typename Class, typename F, typename>
+void doForAllMembers(F&& f)
+{
+    detail::for_tuple(std::forward<F>(f), getMembers<Class>());
+}
+
+template <typename T, typename Class>
+T getMemberValue(Class& obj, const char* name)
+{
+    T value;
+    doForMember<Class, T>(name,
+        [&value, &obj](const auto& member)
+        {
+            value = member.get(obj);
+        }
+    );
+    return value;
+}
+
+}
+
+using namespace meta;
+
+int main(void) {
+  Person person;
+  auto name = meta::getMemberValue<std::string>(person, "name");
+
+  //auto mem = getMembers<Person>();
+
+
 }

@@ -45,7 +45,7 @@ namespace node_ns {
 void cb(node_ns::node_t* node) {
   std::cout << node << std::endl;
   if (is_leaf(node)) {
-    std::cout << ">> " << node->value << " " << node->frequency;
+    std::cout << ">> " << node->value << " " << node->frequency << std::endl;
   } else {
     std::cout << "left : " << node->left << " right : " << node->right << std::endl;
   }

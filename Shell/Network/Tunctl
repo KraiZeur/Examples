@@ -1,0 +1,21 @@
+#!/bin/bash
+
+sudo tunctl
+
+sudo ifconfig tap0 192.168.0.254 up
+sudo route add -host 192.168.0.253 dev tap0
+sudo echo 1 > /proc/sys/net/ipv4/conf/tap0/proxy_arp
+sudo arp -Ds 192.168.0.253 enp0s3 pub
+
+sudo tunctl
+
+sudo ifconfig tap1 192.168.0.253 up
+
+ping -I 192.168.0.254 192.168.0.253
+
+
+nc -lu 192.168.0.254 5558
+
+nc -u -s 192.168.0.253 192.168.0.254 5558
+
+sudo wireshark &

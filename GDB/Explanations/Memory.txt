@@ -1,0 +1,4 @@
+--------------------------------------------
+// Randomize address space through different executions
+
+set disable-randomization [off]
