@@ -1,0 +1,48 @@
+# strace trace system calls of your application
+
+# default execution
+strace <your app and arguments>
+
+# trace only specific system calls
+strace -e open,close <your app and arguments>
+
+# trace all except
+strace -e 'trace=!open,!close' <your app and arguments>
+
+# Monitoring by type 
+strace -e memory <your app and arguments>
+    network
+    ipc
+    process
+    signal
+    file
+    desc
+
+# track process (fork)
+strace -f <your app and arguments>
+
+# attach to process
+strace -p 1234
+
+# See time spend on each syscall
+strace -c <your app and arguments>
+
+# Sort syscall
+strace -S <your app and arguments>
+
+# Display data as HEX
+strace -xx <your app and arguments>
+
+# Define string size
+strace -s [SIZE] <your app and arguments>
+
+# display time or relative time
+strace -t <>
+strace -r <>
+
+### COMMON USAGE ###
+
+strace -e network -x <nc -u 127.0.0.1 5555>
+
+strace -xx -s 1024 <ls>
+

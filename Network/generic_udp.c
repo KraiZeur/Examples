@@ -3,6 +3,9 @@
 #include <string.h>
 #include <stdint.h>
 #include <stddef.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <unistd.h>
 
 #include <arpa/inet.h> //htons...
 
@@ -50,10 +53,11 @@ typedef struct udp_socket_r{
         char* buffer;
         size_t buffer_size;
     } private;
-    int (*create)(struct udp_socket_r*);
+    int (*create)(struct udp_socket_r*, const char*, uint16_t);
     int (*read)(struct udp_socket_r*);
     int (*read_callback)(packet_t*);
-    void(*convert_network_to_host)(payload_t*); // would be better to have granularity here
+    void(*convert_network_to_host)(payload_t*); // would be better to have granularity here (avoid referencing payload_t)
+    void(*convert_host_to_network)(payload_t*); // would be better to have granularity here
     int (*close)(struct udp_socket_r*);
 } udp_socket_r_t;
 
@@ -72,7 +76,8 @@ int _create_udp_socket(udp_socket_r_t* this, const char* address, uint16_t port)
         this->private.buffer = malloc(this->private.buffer_size);
     }
 
-    bind();
+    //bind();
+    return 0;
 }
 
 int _read_udp_socket(udp_socket_r_t* this)
@@ -103,7 +108,7 @@ int _close_udp_socket(udp_socket_r_t *this)
         int ret = close(this->private.socket);
         if (ret!=0)
         {
-            perror("close()")
+            perror("close()");
             return ret;
         }
     }

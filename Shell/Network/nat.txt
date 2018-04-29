@@ -1,0 +1,13 @@
+
+PC |------------------------| Ubuntu |---------------------| Other End
+192.168.1.15 <--> 192.168.1.16 <--> 10.50.1.16 <--> 10.50.1.15
+
+
+iptables -t nat -A PREROUTING -d 192.168.1.16/32 -j DNAT --to-destination 10.50.1.15/32
+
+
+LOG:
+
+iptables -t nat -I PREROUTING 1 -j LOG
+
+tail -f /var/log/messages

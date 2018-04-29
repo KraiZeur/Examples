@@ -1,0 +1,7 @@
+# time mesure time elasped since application started
+# it's better to run the time using realtime priorities and fifo scheduling
+
+sudo chrt -f 99 time --verbose <your app and arguments>
+
+
+### COMMON USAGE ###

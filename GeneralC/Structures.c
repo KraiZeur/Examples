@@ -78,3 +78,29 @@ typedef struct base __attribute__((__packed__))
     uint8_t un2;
     char un3;
 } base_t;
+
+// ----------------------------------------------------------------------------
+
+typedef struct {
+  enum {
+    INT = 1,
+    FLOAT = 2,
+    DOUBLE = 3
+  } data_type;
+
+  union {
+    int data_int;
+    float data_float;
+    double data_double;
+  } data;
+
+} enum_struct_t;
+
+switch(enum_struct)
+{
+    case INT:
+    case FLOAT:
+    case DOUBLE:
+        enum_struct.data.data_double;
+        break;
+}

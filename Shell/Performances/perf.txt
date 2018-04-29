@@ -1,0 +1,5 @@
+# Perf allow to monitor differents metrics as cpu cycle instruction count
+# time elapsed ...
+
+# Run the program 10 times and make a report based on mean.
+perf stat -r 10 -d <your app and arguments>
