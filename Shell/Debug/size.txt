@@ -1,0 +1,3 @@
+###########
+## Get the size of the different section of a binary
+size ./a.out

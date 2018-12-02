@@ -1,0 +1,6 @@
+https://github.com/brendangregg/perf-tools
+
+
+sudo ./funccount -i 1 *tcp*
+
+## -i [s] = interval in sec

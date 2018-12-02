@@ -23,8 +23,9 @@ strace -f <your app and arguments>
 
 # attach to process
 strace -p 1234
+strace -p $(pgrep ./a.out)
 
-# See time spend on each syscall
+# See time spent and call of each syscall as a resume
 strace -c <your app and arguments>
 
 # Sort syscall
@@ -36,7 +37,7 @@ strace -xx <your app and arguments>
 # Define string size
 strace -s [SIZE] <your app and arguments>
 
-# display time or relative time
+# display time or relative time [Better use perf trace in this case]
 strace -t <>
 strace -r <>
 

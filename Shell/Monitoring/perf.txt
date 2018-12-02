@@ -1,0 +1,42 @@
+# Perf allow to monitor differents metrics as cpu cycle instruction count
+# time elapsed ...
+
+####################################################################################
+## TOP
+sudo perf top
+sudo perf top -p <pid>
+
+####################################################################################
+## trace (equivalent to strace)
+sudo perf trace ./a.out
+
+####################################################################################
+## STATS
+sudo perf stat ./a.out
+
+# Run the program 10 times and make a report based on mean.
+perf stat -r 10 -d <your app and arguments>
+
+####################################################################################
+## RECORD
+sudo perf record -F 99 -a -g -- sleep 60
+perf script > out.perf
+
+Capture kernel stack
+-F 99 => 99 Hertz stack samples
+
+sudo perf record ./a.out
+sudo perf record -p PID => ctrl+c
+
+Record during 5 seconds
+sudo perf record -p PID sleep 5
+
+####################################################################################
+FlameGraph
+https://github.com/brendangregg/FlameGraph
+
+perf record -F 99 -a -g -- sleep 30
+perf script | ./stackcollapse-perf.pl out.perf | ./flamegraph.pl > perf.svg
+
+
+

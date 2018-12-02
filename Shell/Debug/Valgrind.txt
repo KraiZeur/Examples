@@ -1,0 +1,46 @@
+!!!!!!!!!!! ALWAYS COMPILE C++ with -g -fno-inline
+
+################
+## EXAMPLES
+
+valgrind -v --leak-check=full --show-leak-kinds=all ./a.out
+valgrind -v --trace-children=yes --time-stamp=yes --log-file=test_%p ./fork
+valgrind -v --log-socket=127.0.0.1:5555 ./fork || valgrind-listener 5555
+
+###################
+## Basics
+
+$> valgrind ./a.out
+<=> is equivalent to <=>
+$> valgrind --tool=memcheck ./a.out
+
+###################
+## Log
+
+--log-file=filename_%p_%n => filename_pid_seqnumber
+--log-socket=127.0.0.1:12345 [TCP !! (nc -l localhost 5555]
+
+or
+
+$> valgrind-listener 5555
+
+###################
+## How To Read
+
+   PID  | 
+==25832== Invalid read of size 4
+
+###################
+## Useful Commands
+
+-v => Verbose
+--trace-children=[yes|no] => MultiProcess [exec/fork]
+--time-stamp=yes => print timestamp
+--track-fds=yes
+
+###############################################
+## Using Valgrind with GDB
+$> valgrind --vgdb=yes --vgdb-error=0 ./a.out
+
+$> gdb ./a.out
+   gdb> target remote | vgdb --pid=$(pgrep a.out)

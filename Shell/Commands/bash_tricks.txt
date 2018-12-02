@@ -1,0 +1,25 @@
+########################
+## PROCESS SUBSTITUTION
+
+cat <(ls)
+diff <(ls) <(ls -a)
+
+########################
+## Stop gdb and resume it
+
+(gdb) Ctrl+Z
+$ cat /proc/$(pidof)
+$ jobs
+$ fg
+(gdb)
+
+
+########################
+## Shortcuts
+
+alt + t => transpose word
+alt + b => move backward from word
+alt + backspace => delete word
+
+ctrl+r // Ctrl+g => search history//stop searching
+ctrl+s // ctrl+q => stop screen output // resume

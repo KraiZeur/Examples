@@ -1,0 +1,17 @@
+nicstat 1
+
+watch "nicstat"
+
+
+    Time      Int   rKB/s   wKB/s   rPk/s   wPk/s    rAvs    wAvs %Util    Sat
+12:55:23   enp0s3    0.67    0.07    0.80    0.57   853.5   127.7  0.00   0.00
+12:55:23       lo    0.02    0.02    0.28    0.28   79.47   79.47  0.00   0.00
+
+######
+
+Time = Heure
+Int = Interface
+rKB/s = débit reception
+wKB/s = débit émission
+rPk/s = read Packet/s
+wPk/s = write Packet/s

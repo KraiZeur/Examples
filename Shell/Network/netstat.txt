@@ -1,0 +1,11 @@
+###############
+## netstat
+
+!!! nestat is obselete [@SEE ss]
+
+-l = listening Show only listening sockets.
+-a = all       Show both listening and non-listening sockets
+-p = pid       Show the PID and name of the program to which each socket belongs.
+-u = udp
+-t = tcp
+-e = extend

@@ -12,3 +12,7 @@ addr2line -e a.out -j .text [0x138]
 // You can also use gdb without offset computation
 
 info symbol 0x4004EC
+
+
+
+559f737b9000 - 0x559f737b91e2 => 0x1E2

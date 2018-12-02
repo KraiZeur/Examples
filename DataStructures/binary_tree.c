@@ -31,29 +31,42 @@ void binary_tree_add(binary_tree_t ** this, T value) {
  * Return 1 if the node is found and deleted 0 else.
  */
 int binary_tree_delete(binary_tree_t ** this, T value) {
-/*  binary_tree_t** found_node=NULL;
+  while ((*this) && this)
+  {
+    if (value == (*this)->value)
+    {
+      if ((*this)->right)
+      {
+        binary_tree_t* current_node=(*this);
+        (*this) = (*this)->right;
+        printf("Found as Right\n");
+        free(current_node); // Specific free should be use
 
-  // First step found the node
-  while((*this) && value!=(*this)->value) {
-      this=((value>=(*this)->value)?&((*this)->right):&((*this)->left));
-  }
+        return 1;
+      }
+      else if ((*this)->left)
+      {
+        binary_tree_t* current_node=(*this);
+        (*this) = (*this)->left;
+        printf("Found as Left\n");
+        free(current_node); // Specific free should be use
 
-  if (found_node!=NULL) {
-    found_node=this;
-    free((*found_node)); // we must either delete or replace fields
-    *found_node=NULL; // we need to say that previous node point to NULL value ?
-  }
+        return 1;
+      }
+      else
+      {
+        printf("Found as Child\n");
+        free((*this));
 
-  // Second step find the least valued node from the right child
-  if ((*found_node) && (*found_node)->right) { // error if no right node no replacement ?
-    this=&(*this)->right;
-    while((*this)->left) {
-      this=&(*this)->left;
+        return 1;
+      }
     }
-    (*found_node)=(*this);
+    else
+    {
+      this = ((value > (*this)->value) ? &((*this)->right) : &((*this)->left));
+    }
   }
 
-  return found_node?1:0;*/
   return 0;
 }
 
@@ -117,6 +130,7 @@ void binary_tree_dump(binary_tree_t ** this) {
  *  [5]      [20]
  *      [15]      [30]
  *                     [45]
+ *                [37]
  */
 int main(int argc, char const *argv[]) {
   binary_tree_t * binary_tree=NULL;
@@ -127,6 +141,12 @@ int main(int argc, char const *argv[]) {
   binary_tree_add(&binary_tree,5);
   binary_tree_add(&binary_tree,15);
   binary_tree_add(&binary_tree,45);
+  binary_tree_add(&binary_tree,37);
+
+  printf("Address :: %p\n", &binary_tree);
+  printf("Address :: %p\n", binary_tree);
+  printf("Address :: %p\n", &(binary_tree->right));
+  printf("Address :: %p\n", (*binary_tree).right);
 
   printf("Binary Tree Depth : %d\n", binary_tree_depth(&binary_tree));
 
@@ -139,6 +159,12 @@ int main(int argc, char const *argv[]) {
 
   puts("Dumping Binary Tree");
   binary_tree_dump(&binary_tree);
+
+
+  binary_tree_delete(&binary_tree, 10);
+
+  puts("Binary Tree In-Order traversal");
+  binary_tree_inorder(&binary_tree, my_callback);
 
   return 0;
 }

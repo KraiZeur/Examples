@@ -1,0 +1,13 @@
+-- Memory --
+  -- Page --
+
+PDBR = Page Directory Base Register
+
+PSE = Page Size Extension          https://en.wikipedia.org/wiki/Page_Size_Extension
+PAE = Physical Address Extension   https://en.wikipedia.org/wiki/Page_Size_Extension
+TLB = Translation Lookaside Buffer https://en.wikipedia.org/wiki/Translation_lookaside_buffer
+
+
+-- CPU -- 
+
+CPUID = https://en.wikipedia.org/wiki/CPUID

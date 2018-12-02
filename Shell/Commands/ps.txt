@@ -1,0 +1,4 @@
+## Forest (Tree of Process)
+# -e full process
+# -f full format
+ps -ef f
