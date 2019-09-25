@@ -5,8 +5,16 @@
 
 // Install IPTraf : sudo apt-get install iptraf
 
+// Traffic Shapping 
+// Traffic Policing
 
-$ tc class add dev eth0 parent 1:0 classid 1:5 htb rate 5mbit mtu 1500
+
+// qdisc => Queuing discipline
+// qdisc is a scheduler attached to a network interface
+// SQF TBF
+
+
+tc class add dev eth0 parent 1:0 classid 1:5 htb rate 5mbit mtu 1500
 
 - eth0 : interface sortante
 
@@ -15,7 +23,7 @@ $ tc class add dev eth0 parent 1:0 classid 1:5 htb rate 5mbit mtu 1500
 
 
 
-$ tc filter add dev eth0 parent 1: protocol ip prio 1 handle 10 fw flowid 1:10
+tc filter add dev eth0 parent 1: protocol ip prio 1 handle 10 fw flowid 1:10
 
 - eth0 => interface sortante
 - 1:

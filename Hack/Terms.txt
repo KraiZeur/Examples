@@ -1,0 +1,22 @@
+Techniques :
+
+ret2libc
+ROP = Return-oriented programming / https://github.com/sashs/Ropper
+
+
+
+Others :
+
+ASLR = Address Space Layout Randomization
+PIE  = Position Independant Executable
+The last abbreviation is PIE, meaning Position Independent Executable.
+ A No PIE application tells the loader which virtual address it should use 
+(and keeps its memory layout quite static). 
+Hence, attacks against this application know up-front how the virtual memory 
+for this application is (partially) organized. Combined with in-kernel ASLR
+(Address Space Layout Randomization, which Gentoo's hardened-sources of course support) 
+PIE applications have a more diverge memory organization, 
+making attacks that rely on the memory structure more difficult.
+
+
+Stack Canary

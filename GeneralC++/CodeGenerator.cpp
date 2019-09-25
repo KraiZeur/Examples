@@ -7,6 +7,27 @@ public:
 
 };
 
+
+class AbstractElement
+{
+
+
+};
+
+template <typename T>
+class FunctionParameterElement : public AbstractElement
+{
+
+};
+
+template <typename T>
+class FunctionElement : public AbstractElement
+{
+
+
+};
+
+
 class CodeGeneratorCPP : public CodeGenerator
 {
 private:

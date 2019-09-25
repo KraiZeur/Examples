@@ -1,0 +1,20 @@
+-t
+TABLE
+  FILTER
+  NAT
+  MANGLE
+
+-A -I -D
+CHAINES
+  INPUT
+  FORWARD
+  POSTROUTING
+  OUTPUT
+
+
+WHATIS 
+
+MASQUERADE
+Se place dans la table NAT de la chaine POSTROUTING ( en fin de chaine ) et converti l'adresse SNAT en adresse de l'interface de sortie
+Principalement utilisé pour convertir une adresse source d'un réseau privé en adresse source du réseau public
+Equivalent a mettre SNAT --to-source X.X.X.X mais au lieu de mettre une ip on met l'interface ethX.

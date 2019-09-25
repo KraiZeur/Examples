@@ -1,0 +1,5 @@
+# Default monitoring a network interface
+tcpdump -i eth0
+
+# Verbose monitoring
+tcpdump -v -i eth0

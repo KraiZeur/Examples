@@ -1,0 +1,12 @@
+pmap -X <PID>
+Adresse Perm Décalage Périphérique Inode  Size  Rss Pss Referenced Anonymous LazyFree ShmemPmdMapped Shared_Hugetlb Private_Hugetlb Swap SwapPss Locked THPeligible Carte
+
+LD_LIBRARY_PATH
+
+ldd
+
+LD_DEBUG=libs 
+
+-fPIC 
+
+readelf -sW lib.so

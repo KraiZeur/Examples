@@ -1,0 +1,41 @@
+@SEE https://www.youtube.com/watch?v=GsMs3n8CB6g
+
+
+$ sudo ./funccount -i 1 *eth*
+  => eth_header_parse                     26
+
+$ cscope -dq 
+  > Find this global definition: eth_header_parse
+  > int eth_header_parse(const struct sk_buff *skb, unsigned char *haddr)
+
+## So here we know that the function contains two args skb and haddr
+
+$ ./kprobe 'p:eth_header_parse'
+  => nc-3401  [002] ....  7726.937535: eth_header_parse: (eth_header_parse+0x0/0x30)
+
+$ man syscall
+  => get ABI from different processes
+
+## %si => variable register from ABI // +32(%si):u8 => offset 32 register %si unsigned char
+## %di => first function argument register in x86_64
+## %si => second function argument register in x86_64
+
+## +0(%si):string => second arg as a string
+
+## so we need to know the offset of the variable we are looking for and here it is
+
+
+## you need to install https://www.ibm.com/support/knowledgecenter/en/linuxonibm/liacf/oprofkernelsymrhel.htm before
+## or for ubuntu https://wiki.ubuntu.com/Debug%20Symbol%20Packages
+
+$ sudo perf probe -nv 'eth_type_trans skb->data_len'
+  => p:probe/eth_type_trans _text+9220432 data_len=+132(%di):x32
+
+$ sudo ./kprobe 'p:eth_type_trans data_len=+132(%di):x32'
+  => nc-3401  [002] ....  7806.626869: eth_header_parse: (eth_header_parse+0x0/0x30) arg1=0xffff91279b38006c
+
+## Display stack backtrace
+$ sudo ./kprobe -s 'p:eth_header_parse %si'
+
+## Display function graph [you need to select a function caller seen from the kprobe bt]
+$ sudo ./funcgraph udp_send_msg

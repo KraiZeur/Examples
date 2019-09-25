@@ -31,7 +31,10 @@ strace -c <your app and arguments>
 # Sort syscall
 strace -S <your app and arguments>
 
-# Display data as HEX
+# Display data as HEX [excluding strings]
+strace -x <your app and arguments>
+
+# Display data as HEX [including strings]
 strace -xx <your app and arguments>
 
 # Define string size
@@ -43,7 +46,11 @@ strace -r <>
 
 ### COMMON USAGE ###
 
+## strace network syscall, print data as hex
 strace -e network -x <nc -u 127.0.0.1 5555>
 
-strace -xx -s 1024 <ls>
+strace -c <./a.out>
+
+## strace print data as hex[including strings] and string size 1024
+strace -xx -s 1024 <./a.out>
 

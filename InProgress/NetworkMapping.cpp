@@ -20,6 +20,7 @@ public:
 
 };
 
+// More like networkEncoding
 class NetworkMapping {
 private:
 public:
@@ -34,9 +35,11 @@ public:
 // NetwkrMappingBuilder
 // create a networkMapping
 
+// Possibilité de définir via fichier json le format du mapping des messages
+
 int main(void)
 {
-    char* buffer[512] = generateNetworkBuffer(512);
+    char buffer[512] = generateNetworkBuffer(512);
 
 
     Packet* packet;

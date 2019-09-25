@@ -1,0 +1,7 @@
+## Documentation finder !!
+
+## Generate database file from the root project folder
+cscope -R
+
+
+cscope -dq

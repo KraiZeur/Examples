@@ -1,3 +1,5 @@
+BASE_DIR := $(realpath ./)
+
 BUILD_DIR=build
 CC=gcc
 CCP=g++

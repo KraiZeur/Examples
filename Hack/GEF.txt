@@ -1,0 +1,24 @@
+https://github.com/hugsy/gef
+
+$ aslr
+
+$ checksec
+	> PIE = Position Independant Executable ( ASLR activated )
+
+$ vmmap
+	> Display memory mapped segment
+
+$ elf-info
+	> info about elf header
+
+$ p system
+
+$ find "/bin/sh"
+
+$ r
+	> run
+
+$ context
+	> display program execution context
+
+$ dereference $rsp l30

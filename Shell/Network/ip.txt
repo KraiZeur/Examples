@@ -1,0 +1,2 @@
+# equivalent to ifconfig in order to display network interfaces
+ip addr show
