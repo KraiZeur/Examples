@@ -1,0 +1,27 @@
+Kernel is the central core of a computer operating system
+
+Process Management (Process, Thread)
+Memory Management (segmentation, virtual memory)
+Concurrency (Scheduler)
+IPC, Filesystem
+VFS, System call
+Device Drivers
+
+Operating systems are the lowest level software that control the computer’s hardware 
+
+Monolithique = Qui est d'un seul bloc de pierre.
+
+Monolithic Kernel
+	- Static
+		All of the operating system is in Kernel Space
+
+	- Modular
+		All of the operating system is in Kernel Space but drivers can be loaded dynamically into kernel
+
+Micro Kernel
+	Kernel is as light as possible, the remaining function are loaded into user space as services.
+	Kernel Code = IPC, Virtual Memory, Scheduling
+
+Advantages 
+Monolithic : performances
+MicroKernel : Modularity, Complexity, Flexibility, Security, Compatbilité

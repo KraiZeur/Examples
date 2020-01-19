@@ -13,6 +13,9 @@ Example:
 2*Intel Core i7 6800K
 6 Cores 12 Threads 3.40Ghz
 
+Each CPU/Core are cadenced at 3.4Ghz
+But Thread will share the 3.4Ghz of each Core
+
 A computer with two socket will have the following configuration:
 
 + System

@@ -1,0 +1,1 @@
+TEE => Trusted Execution Environment
