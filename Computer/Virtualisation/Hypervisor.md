@@ -1,3 +1,5 @@
+Hypervisor ~> Supervisor of the supervisor
+
 Typ 1 -> Native
     Run directly on the host's hardware
 
